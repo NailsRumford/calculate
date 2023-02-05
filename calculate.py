@@ -1,13 +1,14 @@
+from tools import сhecking_expression
+
 def calculate():
     while True:
-        value = input("Введите строку, состоящую из цифр и следующих знаков: +, -, *, / или 'exit' для выхода: ")       
-        if value == "exit":
+        expression = input("Введите строку, состоящую из цифр и следующих знаков: +, -, *, / или 'exit' для выхода: ")       
+        if expression == "exit":
             break     
-        if not all(c in "0123456789+-*/" for c in value):
-            print("На вход должна приходить строка, состоящая из цифр и следующих знаков: +, -, *, /")
+        if not сhecking_expression(expression):
             continue
         try:
-            result = eval(value)
+            result = eval(expression)
             print("Результат:", result)
         except Exception as error:
             print("Ошибка при вычислении выражения:", error)

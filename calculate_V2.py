@@ -1,8 +1,11 @@
-def calculate(value):
-    if not isinstance(value, str) or not all(c in "0123456789+-*/" for c in value):
-        print ("На вход должна приходить строка, состоящая из цифр и следующих знаков: +, -, *, /")
+from tools import сhecking_expression
+
+
+def calculate(expression):
+    сhecking_expression(expression)
     try:
-        result = eval(value)
+        result = eval(expression)
         return result
     except Exception as error:
         print("Ошибка при вычислении выражения:", error)
+        return None
